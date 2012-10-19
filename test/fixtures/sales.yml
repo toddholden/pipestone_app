@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  buyer_number: 1
+  sale_date: 2012-10-18
+  person: 
+
+two:
+  buyer_number: 1
+  sale_date: 2012-10-18
+  person: 

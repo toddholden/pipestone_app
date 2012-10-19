@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2012-10-18
+  metal1: MyString
+  allflex: MyString
+  comments: MyText
+  sale: 
+
+two:
+  date: 2012-10-18
+  metal1: MyString
+  allflex: MyString
+  comments: MyText
+  sale: 

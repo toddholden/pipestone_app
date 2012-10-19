@@ -1,0 +1,33 @@
+<%= form_for(@animal) do |f| %>
+  <% if @animal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+
+      <ul>
+      <% @animal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :metal1 %><br />
+    <%= f.text_field :metal1 %>
+  </div>
+  <div class="field">
+    <%= f.label :allflex %><br />
+    <%= f.text_field :allflex %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
