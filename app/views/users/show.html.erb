@@ -1,0 +1,4 @@
+<% provide(:title, @user.name) %>
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+<%= link_to "Edit user", edit_user_path(@user) %>

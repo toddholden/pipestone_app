@@ -9,6 +9,7 @@ PipestoneApp::Application.routes.draw do
   resources :sales
   resources :people
   resources :animals
+  resources :users
 
   root :to => "home#index"
 
