@@ -1,7 +1,11 @@
 <div class="center hero-unit">
   <h1>Pipestone animal tracking application</h1>
-    <p><%= link_to "Enter / View Animals", animals_path %></p>
-    <p><%= link_to "Enter / View People", people_path %></p>
-    <p><%= link_to "Enter / View Sales", sales_path %></p>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+    <% if signed_in? %>
+      <p><%= link_to "Enter / View Animals", animals_path %></p>
+      <p><%= link_to "Enter / View People", people_path %></p>
+      <p><%= link_to "Enter / View Sales", sales_path %></p>
+    <% else %>
+      <%= link_to "Sign in", signin_path, class: "btn btn-large btn-primary" %><br />
+      <%= link_to "Not registered? Sign up", signup_path %>
+    <% end %>
 </div>
