@@ -1,6 +1,8 @@
 <% provide(:title, 'Animals') %>
 <h1>Viewing and entering animals</h1>
 
+<%= will_paginate %>
+
 <table>
   <tr>
     <th>Date</th>
@@ -29,4 +31,6 @@
 
 <br />
 
+<%= will_paginate %>
 <%= link_to 'New Animal', new_animal_path %>
+

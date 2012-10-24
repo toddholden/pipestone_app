@@ -1,9 +1,14 @@
-source 'https://rubygems.org'
+source "http://bundler-api.herokuapp.com"
+# source 'http://rubygems.org'
 
+gem 'rack'
 gem 'rails', '3.2.8'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '2.0.4'
 gem 'bcrypt-ruby', '3.0.1'
-gem 'jquery-rails', '2.0.2'
+gem 'jquery-rails'
+gem 'faker', '1.0.1'
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -15,9 +20,8 @@ gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
-  gem 'uglifier', '1.2.3'
+  gem 'uglifier'
 end
-
 
 # To use debugger
 # gem 'debugger'

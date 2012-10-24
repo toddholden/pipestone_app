@@ -1,9 +1,6 @@
 PipestoneApp::Application.routes.draw do
-  get "users/new" # I don't think I need this. 10/22
+  # get "users/new" I don't think I need this. 10/22
 
-  match '/people',  to: 'people#index'
-  match '/sales',   to: 'sales#index'
-  match '/animals', to: 'animals#index'
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

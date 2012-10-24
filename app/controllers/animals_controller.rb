@@ -1,8 +1,10 @@
 class AnimalsController < ApplicationController
+  # before_filter :signed_in_user
+
   # GET /animals
   # GET /animals.json
   def index
-    @animals = Animal.all
+    @animals = Animal.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,11 +27,6 @@ class AnimalsController < ApplicationController
   # GET /animals/new.json
   def new
     @animal = Animal.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @animal }
-    end
   end
 
   # GET /animals/1/edit

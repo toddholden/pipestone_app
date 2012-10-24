@@ -3,7 +3,6 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
-$grayLight: #999;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -152,8 +151,12 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: auto;
-  height: auto;
+  padding: 10px;
+  height: auto;  
   margin-bottom: 15px;
+}
+
+select {
   @include box_sizing;
 }
 
