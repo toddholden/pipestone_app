@@ -3,6 +3,7 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @sales = Sale.all
+    # WTF. person = Person.find(:person_id)
 
     respond_to do |format|
       format.html # index.html.erb

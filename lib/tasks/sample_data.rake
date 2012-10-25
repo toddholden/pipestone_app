@@ -11,7 +11,7 @@ namespace :db do
                  allflex: "23563274",
                  comments: "Lorem ipsum")
                  
-    1999.times do |n|
+    200.times do |n|
       date = "2012/10/24"
       metal1 = "#{n+1}"
       allflex = "#{n+2}"
@@ -31,6 +31,19 @@ namespace :db do
                    email: email,
                    password: password,
                    password_confirmation: password)
+    end
+
+    20.times do |n|
+      lastname = Faker::Name.last_name
+      firstname = Faker::Name.first_name
+      address = Faker::Address.street_address(include_secondary = false)
+      city = Faker::Address.city
+      state = "MN"
+      Person.create!(lastname: lastname,
+                     firstname: firstname,
+                     address: address,
+                     city: city,
+                     state: state)
     end
   end
 end

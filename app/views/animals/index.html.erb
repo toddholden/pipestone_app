@@ -1,9 +1,10 @@
 <% provide(:title, 'Animals') %>
 <h1>Viewing and entering animals</h1>
 
+<%= link_to 'New Animal', new_animal_path %>
 <%= will_paginate %>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Date</th>
     <th>Metal1</th>
@@ -17,10 +18,10 @@
 
 <% @animals.each do |animal| %>
   <tr>
-    <td><%= animal.date %></td>
+    <td><span class="date"><%= animal.date %></span></td>
     <td><%= animal.metal1 %></td>
     <td><%= animal.allflex %></td>
-    <td><%= animal.comments %></td>
+    <td class="comments"><%= animal.comments %></td>
     <td><%= animal.sale %></td>
     <td><%= link_to 'Show', animal %></td>
     <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
@@ -32,5 +33,4 @@
 <br />
 
 <%= will_paginate %>
-<%= link_to 'New Animal', new_animal_path %>
 

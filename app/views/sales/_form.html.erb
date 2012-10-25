@@ -20,8 +20,8 @@
     <%= f.date_select :sale_date %>
   </div>
   <div class="field">
-    <%= f.label :person %><br />
-    <%= f.text_field :person %>
+    <%= f.label :person_id %><br />
+    <%= collection_select(:person, :person_id, Person.all, :id, :lastname) %>
   </div>
   <div class="actions">
     <%= f.submit %>

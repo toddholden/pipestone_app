@@ -172,3 +172,12 @@ select {
   @extend .control-group;
   @extend .error;
  }
+
+/* tables */
+td.comments {
+ width: 30%;
+}
+
+.date {
+  white-space: nowrap;
+}
