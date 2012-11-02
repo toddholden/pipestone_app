@@ -1,0 +1,9 @@
+   <tr>
+     <td><%= sale.sale_date %></td>
+     <td><%= sale.buyer_number %></td>
+     <td>
+       <%= link_to 'Show', sale %> / 
+       <%= link_to 'Edit', edit_sale_path(sale) %> /
+       <%= link_to 'Delete', sale, method: :delete, data: { confirm: 'Are you sure?' } %>
+     </td>
+   </tr>

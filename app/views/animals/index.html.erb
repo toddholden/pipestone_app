@@ -11,9 +11,7 @@
     <th>Allflex</th>
     <th>Comments</th>
     <th>Sale</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Options</th>
   </tr>
 
 <% @animals.each do |animal| %>
@@ -23,9 +21,11 @@
     <td><%= animal.allflex %></td>
     <td class="comments"><%= animal.comments %></td>
     <td><%= animal.sale %></td>
-    <td><%= link_to 'Show', animal %></td>
-    <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-    <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <%= link_to 'Show', animal %> /
+      <%= link_to 'Edit', edit_animal_path(animal) %> /
+      <%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
   </tr>
 <% end %>
 </table>

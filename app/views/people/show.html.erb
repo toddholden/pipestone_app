@@ -1,31 +1,30 @@
-<% provide(:title, 'People') %>
+<% provide(:title, @person.firstname + " " +  @person.lastname) %>
 <p id="notice"><%= notice %></p>
+<div class="row">
+<aside class="span3">
+<section>
+<h1><%= @person.firstname + " " +  @person.lastname %></h1>
 
 <p>
-  <b>Lastname:</b>
-  <%= @person.lastname %>
+  <%= @person.address %><br />
+  <%= @person.city %>, <%= @person.state %>
 </p>
+<%= link_to 'Edit', edit_person_path(@person) %> | 
+<%= link_to 'Back to list', people_path %>
+</section>
+</aside>
 
-<p>
-  <b>Firstname:</b>
-  <%= @person.firstname %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @person.address %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @person.city %>
-</p>
-
-<p>
-  <b>State:</b>
-  <%= @person.state %>
-</p>
-
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+  <div class="span8">
+    <% if @person.sales.any? %>
+      <table class="table table-condensed">
+        <tr>
+          <th>Sale date</th>
+          <th>Buyer number</th>
+          <th>Options</th>
+        </tr>
+        <%= render @sales %>
+     </table>
+      <%= will_paginate @sales %>
+    <% end %>
+  </div>
+</div>

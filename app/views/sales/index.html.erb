@@ -1,13 +1,13 @@
 <% provide(:title, 'Sales') %>
 <h1>Listing sales</h1>
 
+<%= will_paginate %>
+
 <table class="table">
   <tr>
     <th>Buyer number</th>
     <th>Sale date</th>
     <th>Person</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
@@ -15,13 +15,17 @@
   <tr>
     <td><%= sale.buyer_number %></td>
     <td><%= sale.sale_date %></td>
-    <td><%= sale.person %></td>
-    <td><%= link_to 'Show', sale %></td>
-    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
-    <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= sale.person.firstname + " " + sale.person.lastname %></td>
+    <td>
+      <%= link_to 'Show', sale %> / 
+      <%= link_to 'Edit', edit_sale_path(sale) %> /
+      <%= link_to 'Delete', sale, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate %>
 
 <br />
 

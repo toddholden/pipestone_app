@@ -16,6 +16,7 @@ class PeopleController < ApplicationController
   # GET /people/1.json
   def show
     @person = Person.find(params[:id])
+    @sales = @person.sales.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # show.html.erb

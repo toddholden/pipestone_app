@@ -4,7 +4,7 @@ class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
   def index
-    @sales = Sale.all
+    @sales = Sale.paginate(page: params[:page])
     # WTF. person = Person.find(:person_id)
 
     respond_to do |format|
@@ -17,6 +17,7 @@ class SalesController < ApplicationController
   # GET /sales/1.json
   def show
     @sale = Sale.find(params[:id])
+    @animal = @sale.animals.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # show.html.erb
