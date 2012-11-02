@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_filter :correct_user,   only: [:edit, :update]
-  before_filter :admin_user,     only: :destroy
+  before_filter :admin_user,     only: [:destroy, :index]
 
   def index
     @users = User.paginate(page: params[:page])
@@ -40,7 +40,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated"
-      sign_in @user
+      unless current_user.admin?
+        sign_in @user
+      end
       redirect_to @user
     else
       render 'edit'
@@ -49,19 +51,24 @@ class UsersController < ApplicationController
   
   private
 
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
+#  Following code is in the application controller.
+#  To be deleted on refactoring.
+#    def signed_in_user
+#      unless signed_in?
+#        store_location
+#        redirect_to signin_url, notice: "Please sign in."
+#      end
+#    end
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
+      redirect_to(root_path) unless current_user?(@user) or current_user.admin? 
     end
     
     def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      unless current_user.admin?
+        redirect_to root_path
+        flash[:failure] = "You can't complete that action." 
+      end
     end
 end

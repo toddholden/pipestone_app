@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  # before_filter :signed_in_user
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
 
   # GET /animals
   # GET /animals.json
@@ -77,4 +77,5 @@ class AnimalsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 end

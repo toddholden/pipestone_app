@@ -1,4 +1,6 @@
 class SalesController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
+
   # GET /sales
   # GET /sales.json
   def index

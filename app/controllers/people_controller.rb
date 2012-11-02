@@ -1,4 +1,6 @@
 class PeopleController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
+
   # GET /people
   # GET /people.json
   def index
