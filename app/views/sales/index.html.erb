@@ -5,17 +5,17 @@
 
 <table class="table">
   <tr>
-    <th>Buyer number</th>
     <th>Sale date</th>
-    <th>Person</th>
+    <th>Buyer name</th>
+    <th>Buyer number</th>
     <th></th>
   </tr>
 
 <% @sales.each do |sale| %>
   <tr>
-    <td><%= sale.buyer_number %></td>
     <td><%= sale.sale_date %></td>
-    <td><%= sale.person.firstname + " " + sale.person.lastname %></td>
+    <td><%= sale.person.lastname + ", " + sale.person.firstname %></td>
+    <td><%= sale.buyer_number %></td>
     <td>
       <%= link_to 'Show', sale %> / 
       <%= link_to 'Edit', edit_sale_path(sale) %> /

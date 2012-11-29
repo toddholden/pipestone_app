@@ -5,7 +5,7 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @sales = Sale.paginate(page: params[:page])
-    # WTF. person = Person.find(:person_id)
+    # @sale = Sale.find(params[:id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -29,6 +29,7 @@ class SalesController < ApplicationController
   # GET /sales/new.json
   def new
     @sale = Sale.new
+    @sale.person_id = params[:person_id]
 
     respond_to do |format|
       format.html # new.html.erb

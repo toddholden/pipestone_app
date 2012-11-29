@@ -25,6 +25,7 @@
         <%= render @sales %>
      </table>
       <%= will_paginate @sales %>
+      <%= link_to 'Create a new sale', new_sale_path(:person_id => @person.id) %>
     <% end %>
   </div>
 </div>
