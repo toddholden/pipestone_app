@@ -12,17 +12,16 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :person_id %><br />
+    <%= f.text_field :person_id %>
+  </div>
+  <div class="field">
     <%= f.label :buyer_number %><br />
     <%= f.text_field :buyer_number %>
   </div>
   <div class="field">
     <%= f.label :sale_date %><br />
     <%= f.date_select :sale_date %>
-  </div>
-  <div class="field">
-    <%= f.label :person_id %><br />
-    <%= f.text_field :person_id %>
-    <%= collection_select(:person, :person_id, Person.all, :id, :lastname) %>
   </div>
   <div class="actions">
     <%= f.submit %>
