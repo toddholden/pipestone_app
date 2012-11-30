@@ -1,5 +1,5 @@
-source "http://bundler-api.herokuapp.com"
-#source 'http://rubygems.org'
+#source "http://bundler-api.herokuapp.com"
+source 'http://rubygems.org'
 
 gem 'rack'
 gem 'rails', '3.2.8'
@@ -18,7 +18,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '0.12.2'
 end
 
 # Gems used only for assets and not required
