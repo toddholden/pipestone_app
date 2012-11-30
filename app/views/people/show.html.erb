@@ -15,6 +15,7 @@
 </aside>
 
   <div class="span8">
+    <%= link_to 'Create a new sale', new_sale_path(:person_id => @person.id) %>
     <% if @person.sales.any? %>
       <table class="table table-condensed">
         <tr>
@@ -26,6 +27,5 @@
      </table>
       <%= will_paginate @sales %>
     <% end %>
-    <%= link_to 'Create a new sale', new_sale_path(:person_id => @person.id) %>
   </div>
 </div>

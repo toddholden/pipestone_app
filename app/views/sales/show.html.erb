@@ -17,6 +17,7 @@
 </aside>
 
 <div class="span8">
+<%= link_to 'Add animals' %> <!--add path later -->
   <% if @sale.animals.any? %>
     <table class="table table-condensed">
       <tr>
@@ -27,7 +28,7 @@
         <th>Sale</th>
         <th>Options</th>
       </tr>
-      <%= render @animals %>
+      <%= render @animal %>
     </table>
   <% end %>
 </div>

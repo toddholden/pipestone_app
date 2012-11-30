@@ -20,7 +20,11 @@
     <td><%= animal.metal1 %></td>
     <td><%= animal.allflex %></td>
     <td class="comments"><%= animal.comments %></td>
-    <td><%= animal.sale %></td>
+    <td>
+      <% if animal.sale_id %>
+        <%= link_to animal.sale_id, sale_path %>
+      <% end %>
+    </td>
     <td>
       <%= link_to 'Show', animal %> /
       <%= link_to 'Edit', edit_animal_path(animal) %> /

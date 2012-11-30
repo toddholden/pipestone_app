@@ -1,15 +1,15 @@
 PipestoneApp::Application.routes.draw do
   # get "users/new" I don't think I need this. 10/22
 
-  match '/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
+  match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy', :via => :delete
 
   resources :sales
   resources :people
   resources :animals
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => "home#index"
 
