@@ -22,7 +22,7 @@
     <td class="comments"><%= animal.comments %></td>
     <td>
       <% if animal.sale_id %>
-        <%= link_to animal.sale_id %><!-- Make this line work. Shit. -->
+        <%= link_to animal.sale_id, animal.sale %>
       <% end %>
     </td>
     <td>

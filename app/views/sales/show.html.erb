@@ -5,10 +5,10 @@
 <section>
 <h1><%= name %></h1>
 <p>
-  <b>Sale date:</b>
-  <%= @sale.sale_date %><br />
   <b>Buyer number:</b>
-  <%= @sale.buyer_number %>
+  <%= @sale.buyer_number %><br />
+  <b>Sale date:</b>
+  <%= @sale.sale_date %>
 </p>
 
 <%= link_to 'Edit', edit_sale_path(@sale) %> |
