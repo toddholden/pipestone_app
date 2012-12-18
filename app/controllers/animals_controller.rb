@@ -38,6 +38,7 @@ class AnimalsController < ApplicationController
   # POST /animals.json
   def create
     @animal = Animal.new(params[:animal])
+    #@animal.allflex = Animal.last.increment(:allflex)
 
     respond_to do |format|
       if @animal.save
