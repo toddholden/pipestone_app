@@ -4,7 +4,8 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animals = Animal.paginate(page: params[:page])
+    @animals = Animal.order("date DESC").paginate(page: params[:page])
+    #@animals = Animal.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

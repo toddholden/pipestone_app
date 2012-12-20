@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = Person.search(params[:search]) #add pagination
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,16 +1,23 @@
 <% provide(:title, 'People') %>
 <h1>Listing people</h1>
 
+<%= link_to 'Enter a new person', new_person_path %>
+<%= form_tag people_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <table class="table">
   <tr>
-    <th>Lastname</th>
-    <th>Firstname</th>
+    <th>Last name</th>
+    <th>First name</th>
     <th>Address</th>
     <th>City</th>
     <th>State</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Zip</th>
+    <th>Options</th>
   </tr>
 
 <% @people.each do |person| %>
@@ -20,13 +27,8 @@
     <td><%= person.address %></td>
     <td><%= person.city %></td>
     <td><%= person.state %></td>
-    <td><%= link_to 'Show', person %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
-    <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td></td>
+    <td><%= link_to 'Show', person %> / <%= link_to 'Edit', edit_person_path(person) %> / <%= link_to 'Delete', person, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Person', new_person_path %>

@@ -8,13 +8,13 @@ namespace :db do
                  password: "foobar",
                  password_confirmation: "foobar")
     admin.toggle!(:admin)
-    Animal.create!(date: "2012/10/24",
+    Animal.create!(date: Time.now,
                  metal1:"41AAA1234",
                  allflex: "23563274",
                  comments: "Lorem ipsum")
                  
     50.times do |n|
-      date = "2012/12/14"
+      date = rand(2.years).ago 
       metal1 = Faker::Base.regexify(/^[1-9][0-9][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9]$/)
       allflex = "#{n+2}"
       comment = Faker::Lorem.sentence(10) 
@@ -35,7 +35,7 @@ namespace :db do
                    password_confirmation: password)
     end
 
-    20.times do |n|
+    50.times do |n|
       lastname = Faker::Name.last_name
       firstname = Faker::Name.first_name
       address = Faker::Address.street_address(include_secondary = false)
