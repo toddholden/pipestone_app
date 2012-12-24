@@ -1,14 +1,12 @@
 <% provide(:title, @person.firstname + " " +  @person.lastname) %>
-<p id="notice"><%= notice %></p>
 <div class="row">
 <aside class="span3">
 <section>
-<h1><%= @person.firstname + " " +  @person.lastname %></h1>
-
-<p>
+<address>
+  <h1><%= @person.firstname + " " +  @person.lastname %></h1>
   <%= @person.address %><br />
   <%= @person.city %>, <%= @person.state %>
-</p>
+</address>
 <%= link_to 'Edit', edit_person_path(@person) %> | 
 <%= link_to 'Back to list', people_path %>
 </section>

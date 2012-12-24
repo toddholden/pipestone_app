@@ -1,14 +1,13 @@
 <% provide(:title, 'People') %>
 <h1>Listing people</h1>
 
-<%= link_to 'Enter a new person', new_person_path %>
-<%= form_tag people_path, :method => 'get' do %>
-  <p>
+<%= form_tag people_path, :class => 'form-search', :method => 'get' do %>
+  <div>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+    <%= submit_tag "Search by name", :class => 'btn', :name => nil %>
+    <%= link_to 'Enter a new person', new_person_path, :class => 'btn' %>
+  </div>
 <% end %>
-
 
 <table class="table table-striped">
   <tr>

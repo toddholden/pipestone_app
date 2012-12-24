@@ -1,16 +1,16 @@
 <div class="center hero-unit">
   <h1>Pipestone animal tracking application</h1>
     <% if signed_in? %>
-      <p>
-        <%= link_to "Enter / View Animals", animals_path, class: "btn btn-large btn-primary" %>
-        <%= link_to "Enter / View People", people_path, class: "btn btn-large btn-primary" %>
-        <%= link_to "Enter / View Sales", sales_path, class: "btn btn-large btn-primary" %>
+      <div class="btn-group">
+        <%= link_to "Enter / View Animals", animals_path, class: "btn" %>
+        <%= link_to "Enter / View People", people_path, class: "btn" %>
+        <%= link_to "Enter / View Sales", sales_path, class: "btn" %>
       <% if current_user.admin? %>
-        <%= link_to "Enter / View Users", users_path, class: "btn btn-large btn-primary" %>
+        <%= link_to "Enter / View Users", users_path, class: "btn" %>
       <% end %>
-      </p>
+      </div>
     <% else %>
-      <p><%= link_to "Sign in", signin_path, class: "btn btn-large btn-primary" %></p>
+      <p><%= link_to "Sign in", signin_path, class: "btn" %></p>
       <p>Not Registered? <%= link_to "Sign up", signup_path %></p>
     <% end %>
 </div>
