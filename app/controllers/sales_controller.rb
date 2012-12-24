@@ -18,6 +18,7 @@ class SalesController < ApplicationController
   def show
     @sale = Sale.find(params[:id])
     @animal = @sale.animals.paginate(page: params[:page])
+    @animals = Animal.all
 
     respond_to do |format|
       format.html # show.html.erb

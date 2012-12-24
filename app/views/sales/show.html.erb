@@ -1,4 +1,7 @@
 <% provide(:title, 'Sales') %>
+<div class="container">
+  <h1>Sale</h1>
+</div>
 <div class="row">
 <aside class="span3">
 <section>
@@ -31,4 +34,29 @@
     </table>
   <% end %>
 </div>
+</div>
+<hr>
+<div class="container">
+  <h2>Select animals</h2>
+
+<table class="table table-striped">
+  <tr>
+    <th>Select</th>
+    <th>Date</th>
+    <th>Metal1</th>
+    <th>Allflex</th>
+    <th>Comments</th>
+  </tr>
+
+<% @animals.each do |animal| %>
+  <tr>
+    <td><%= check_box("post", :animal_id) %></td>
+    <td><span class="date"><%= animal.date %></span></td>
+    <td><%= animal.metal1 %></td>
+    <td><%= animal.allflex %></td>
+    <td class="comments"><%= animal.comments %></td>
+  </tr>
+<% end %>
+</table>
+
 </div>
