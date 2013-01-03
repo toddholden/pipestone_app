@@ -1,13 +1,16 @@
 <% provide(:title, 'People') %>
 <h1>Listing people</h1>
 
-<%= form_tag people_path, :class => 'form-search', :method => 'get' do %>
-  <div>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search by name", :class => 'btn', :name => nil %>
+  <div class="pull-left">
+    <%= form_tag people_path, :class => 'form-search', :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search by name", :class => 'btn', :name => nil %>
+    <% end %>
+  </div>
+  
+  <div class="pull-right">
     <%= link_to 'Enter a new person', new_person_path, :class => 'btn' %>
   </div>
-<% end %>
 
 <table class="table table-striped">
   <tr>
@@ -27,7 +30,7 @@
     <td><%= person.address %></td>
     <td><%= person.city %></td>
     <td><%= person.state %></td>
-    <td></td>
+    <td><%= person.zipcode %></td>
     <td><%= link_to 'Show', person %> / <%= link_to 'Edit', edit_person_path(person) %> / <%= link_to 'Delete', person, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' } %></td>
   </tr>
 <% end %>

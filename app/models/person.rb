@@ -1,5 +1,5 @@
 class Person < ActiveRecord::Base
-  attr_accessible :address, :city, :firstname, :lastname, :state
+  attr_accessible :address, :city, :firstname, :lastname, :state, :zipcode
   has_many :sales
   validates :firstname, :lastname, :address, :city, :state, :presence => true
 

@@ -13,22 +13,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br />
+    <%= f.label :date %>
     <%= f.date_select( "date", :order => [:month, :day, :year] ) %>
   </div>
   <div class="field">
-    <%= f.label :metal1 %><br />
+    <%= f.label :metal1 %>
     <%= f.text_field :metal1 %>
   </div>
   <div class="field">
-    <%= f.label :allflex %><br />
+    <%= f.label :allflex %>
     <%= f.text_field :allflex %>
   </div>
   <div class="field">
-    <%= f.label :comments %><br />
+    <%= f.label :comments %>
     <%= f.text_area :comments %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-primary' %>
   </div>
 <% end %>

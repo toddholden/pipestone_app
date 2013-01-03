@@ -35,7 +35,9 @@
   <% end %>
 </div>
 </div>
+
 <hr>
+
 <div class="container">
   <h2>Select animals</h2>
 
@@ -47,16 +49,18 @@
     <th>Allflex</th>
     <th>Comments</th>
   </tr>
-
-<% @animals.each do |animal| %>
-  <tr>
-    <td><%= check_box("post", :animal_id) %></td>
-    <td><span class="date"><%= animal.date %></span></td>
-    <td><%= animal.metal1 %></td>
-    <td><%= animal.allflex %></td>
-    <td class="comments"><%= animal.comments %></td>
-  </tr>
+<%= form_tag({:controller => "animals", :action => "animal_assignment"}, {:method => 'get'} ) do %>
+  <%= hidden_field_tag( :sale_id, @sale.id ) %>
+  <% @animals.each do |animal| %>
+    <tr>
+      <td><%= check_box_tag 'animals_sold[]', animal.id %></td>
+      <td><span class="date"><%= animal.date %></span></td>
+      <td><%= animal.metal1 %></td>
+      <td><%= animal.allflex %></td>
+      <td class="comments"><%= animal.comments %></td>
+    </tr>
+  <% end %>
+  <%= submit_tag %>
 <% end %>
 </table>
-
 </div>

@@ -41,11 +41,13 @@ namespace :db do
       address = Faker::Address.street_address(include_secondary = false)
       city = Faker::Address.city
       state = "MN"
+      zipcode = Faker::Address.zip_code
       Person.create!(lastname: lastname,
                      firstname: firstname,
                      address: address,
                      city: city,
-                     state: state)
+                     state: state,
+                     zipcode: zipcode)
     end
   end
 end
