@@ -1,13 +1,17 @@
 namespace :db do
   desc "Fill animals table with sample data"
 
-  re = /\A\d{2}[a-zA-Z]{3}\d{4}\z/
   task populate: :environment do
-    admin = User.create!(name: "Ted",
+    admin1 = User.create!(name: "Ted",
                  email: "ted@foo.bar",
                  password: "foobar",
                  password_confirmation: "foobar")
-    admin.toggle!(:admin)
+    admin1.toggle!(:admin)
+    admin2 = User.create!(name: "Ray Scheierl",
+                 email: "ray.scheierl@state.mn.us",
+                 password: "scheierl",
+                 password_confirmation: "scheierl")
+    admin2.toggle!(:admin)
     Animal.create!(date: Time.now,
                  metal1:"41AAA1234",
                  allflex: "23563274",
