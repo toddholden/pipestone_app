@@ -31,6 +31,7 @@ class SalesController < ApplicationController
   def new
     @sale = Sale.new
     @sale.person_id = params[:person_id]
+    @people = Person.all(:order => :lastname)
 
     respond_to do |format|
       format.html # new.html.erb

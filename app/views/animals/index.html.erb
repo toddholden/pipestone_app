@@ -1,8 +1,12 @@
 <% provide(:title, 'Animals') %>
 <h1>Viewing and entering animals</h1>
 
-<%= link_to 'Enter a new animal', new_animal_path %>
-<%= will_paginate %>
+<div class="pull-left">
+  <%= link_to 'Enter a new animal', new_animal_path, :class => 'btn'  %>
+</div>
+<div class="pull-right">
+  <%= will_paginate %>
+</div>
 
 <table class="table table-striped">
   <tr>

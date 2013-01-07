@@ -10,4 +10,8 @@ class Person < ActiveRecord::Base
       find(:all, :order => "lastname")
     end
   end
+
+  def name_by_last
+    "#{self.lastname}, #{self.firstname}"
+  end
 end

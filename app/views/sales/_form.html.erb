@@ -11,8 +11,15 @@
       </ul>
     </div>
   <% end %>
-  <h3>Buyer: <%= name %></h3>
-  <p><%= link_to "(Change user)", people_path %></p>
+  <div class="field">
+  <% if @sale.person_id %>
+    <h3>Buyer: <%= name %></h3>
+    <p><%= link_to "(Change user)", people_path %></p>
+  <% else %>
+    <h3>Choose a buyer</h3>
+    <%= select(:sale, :person_id, (options_from_collection_for_select(@people, :id, :name_by_last ))) %> 
+  <% end %>
+  </div>
   <div class="field">
     <%= f.label :buyer_number %>
     <%= f.text_field :buyer_number %>
