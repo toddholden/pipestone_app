@@ -106,6 +106,12 @@ class AnimalsController < ApplicationController
   redirect_to sale_path
   end
 
+  def remove_animal_from_sale
+    @animal = Animal.find(params[:id])
+    @animal.sold = 0
+    @animal.save
+  end
+
   def metal_increment(metal1)
     metal = metal1.first(5)
     n = Integer(metal1.last(4)) + 10000
@@ -117,4 +123,5 @@ class AnimalsController < ApplicationController
       nil
     end
   end
+
 end

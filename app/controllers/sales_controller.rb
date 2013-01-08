@@ -18,7 +18,7 @@ class SalesController < ApplicationController
   def show
     @sale = Sale.find(params[:id])
     @animal = @sale.animals.paginate(page: params[:page])
-    @animals = Animal.all
+    @unsold_animals = Animal.where("sold = 'f'") 
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,6 +42,7 @@ class SalesController < ApplicationController
   # GET /sales/1/edit
   def edit
     @sale = Sale.find(params[:id])
+    @people = Person.all(:order => :lastname)
   end
 
   # POST /sales

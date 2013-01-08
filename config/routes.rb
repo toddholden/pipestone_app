@@ -5,6 +5,7 @@ PipestoneApp::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy', :via => :delete
   match 'animals/next', :to => 'animals#next'
   match '/animals/:id/animal_assignment', :to => 'animals#animal_assignment'
+  match '/sales/:id/remove_animal_from_sale', :to => 'animals#remove_animal_from_sale'
 
   resources :sales
   resources :people

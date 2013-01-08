@@ -14,7 +14,7 @@
     <th>Metal1</th>
     <th>Allflex</th>
     <th>Comments</th>
-    <th>Sale</th>
+    <th>Sold?</th>
     <th>Options</th>
   </tr>
 
@@ -24,9 +24,9 @@
     <td><%= animal.metal1 %></td>
     <td><%= animal.allflex %></td>
     <td class="comments"><%= animal.comments %></td>
-    <td>
+    <td class="center">
       <% if animal.sale_id %>
-        <%= link_to animal.sale_id, animal.sale %>
+        <%= link_to "\u2713", animal.sale %>
       <% end %>
     </td>
     <td>

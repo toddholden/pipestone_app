@@ -5,4 +5,8 @@ class Animal < ActiveRecord::Base
   validates :metal1, :format => { :with => /\A\d{2}[a-zA-Z]{3}\d{4}\z/,
     :message => "Format must match: 12ABC1234" }
 
+  def unsold_animals
+    Animal.where("sold = 'f'")
+  end
+
 end

@@ -1,12 +1,9 @@
 <tr>
   <td><span class="date"><%= animal.date %></span></td>
-  <td><%= animal.metal1 %></td>
+  <td><%= link_to animal.metal1, animal %></td>
   <td><%= animal.allflex %></td>
-  <td class="comments"><%= animal.comments %></td>
-  <td><%= link_to animal.sale_id, animal.sale %></td>
-  <td>
-    <%= link_to 'Show', animal %> /
-    <%= link_to 'Edit', edit_animal_path(animal) %> /
-    <%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <td><%= animal.comments %></td>
+  <td class="center">
+    <%= link_to 'X', animal, method: :delete, data: { confirm: 'Are you sure?' } %>
   </td> 
 </tr>

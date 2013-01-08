@@ -27,8 +27,7 @@
         <th>Metal1</th>
         <th>Allflex</th>
         <th>Comments</th>
-        <th>Sale</th>
-        <th>Options</th>
+        <th>Remove</th>
       </tr>
       <%= render @animal %>
     </table>
@@ -51,7 +50,7 @@
   </tr>
 <%= form_tag({:controller => "animals", :action => "animal_assignment"}, {:method => 'get'} ) do %>
   <%= hidden_field_tag( :sale_id, @sale.id ) %>
-  <% @animals.each do |animal| %>
+  <% @unsold_animals.each do |animal| %>
     <tr>
       <td><%= check_box_tag 'animals_sold[]', animal.id %></td>
       <td><span class="date"><%= animal.date %></span></td>
