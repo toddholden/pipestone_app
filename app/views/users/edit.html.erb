@@ -1,7 +1,7 @@
 <% provide(:title, 'Edit') %>
 <h1>Sign up</h1>
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span6 offset4">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
@@ -17,7 +17,7 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Update", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
