@@ -1,11 +1,11 @@
 class AnimalsController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /animals
   # GET /animals.json
   def index
-    @animals = Animal.order("date DESC").paginate(page: params[:page])
-    #@animals = Animal.paginate(page: params[:page])
+    @animals = Animal.order(sort_column + " " + sort_direction).paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -124,6 +124,16 @@ class AnimalsController < ApplicationController
     else
       nil
     end
+  end
+  
+  private
+
+  def sort_column
+    Animal.column_names.include?(params[:sort]) ? params[:sort] : "date"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 
 end
