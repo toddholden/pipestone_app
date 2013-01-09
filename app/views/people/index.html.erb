@@ -1,15 +1,20 @@
 <% provide(:title, 'People') %>
 <h1>Listing people</h1>
 
-  <div class="pull-left">
-    <%= form_tag people_path, :class => 'form-search', :method => 'get' do %>
+  <div class="toolbar pull-left">
+    <%= link_to 'Enter a new person', new_person_path, :class => 'btn btn-primary' %>
+  </div>
+  <div class="toolbar pull-right">
+    <%= form_tag people_path, :class => 'form-search inline input-xlarge', :method => 'get' do %>
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Search by name", :class => 'btn', :name => nil %>
+      <% if (params[:search]) %> 
+          <%= link_to "Clear search", people_path, :class => 'btn' %>
+      <% end %>
     <% end %>
   </div>
   
   <div class="pull-right">
-    <%= link_to 'Enter a new person', new_person_path, :class => 'btn' %>
   </div>
 
 <table class="table table-striped">

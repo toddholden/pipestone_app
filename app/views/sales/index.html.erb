@@ -1,7 +1,10 @@
 <% provide(:title, 'Sales') %>
 <h1>Listing sales</h1>
 
-<%= will_paginate %>
+<div class="toolbar pull-left">
+  <%= link_to 'New Sale', new_sale_path, :class => 'btn' %>
+  <%= will_paginate :class => 'pagination-mini' %>
+</div>
 
 <table class="table table-striped">
   <tr>
@@ -29,4 +32,3 @@
 
 <br />
 
-<%= link_to 'New Sale', new_sale_path %>

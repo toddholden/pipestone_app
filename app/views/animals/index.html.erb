@@ -1,10 +1,10 @@
 <% provide(:title, 'Animals') %>
 <h1>Viewing and entering animals</h1>
 
-<div class="pull-left">
-  <%= link_to 'Enter a new animal', new_animal_path, :class => 'btn'  %>
+<div class="toolbar pull-left">
+  <%= link_to 'Enter a new animal', new_animal_path, :class => 'btn btn-primary'  %>
 </div>
-<div class="pull-right">
+<div class="toolbar pull-right">
   <%= will_paginate %>
 </div>
 
@@ -30,7 +30,6 @@
       <% end %>
     </td>
     <td>
-      <%= link_to 'Show', animal %> /
       <%= link_to 'Edit', edit_animal_path(animal) %> /
       <%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %>
     </td>
@@ -39,6 +38,6 @@
 </table>
 
 <br />
-
-<%= will_paginate %>
-
+<div class="pull-right">
+  <%= will_paginate %>
+</div>

@@ -35,7 +35,8 @@
     <%= f.label :zipcode %>
     <%= f.text_field :zipcode %>
   </div>
-  <div class="actions">
+  <div>
     <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to "Cancel", people_path, :class => 'btn' %>
   </div>
 <% end %>
