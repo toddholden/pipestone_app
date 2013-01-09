@@ -2,11 +2,11 @@
   <h1>Pipestone animal tracking application</h1>
     <% if signed_in? %>
       <div class="btn-group center">
-        <%= link_to "Animals", animals_path, class: "btn btn-large" %>
-        <%= link_to "People", people_path, class: "btn btn-large" %>
-        <%= link_to "Sales", sales_path, class: "btn btn-large" %>
+        <%= link_to "Animals", animals_path, class: "btn btn-primary btn-large" %>
+        <%= link_to "People", people_path, class: "btn btn-primary btn-large" %>
+        <%= link_to "Sales", sales_path, class: "btn btn-primary btn-large" %>
       <% if current_user.admin? %>
-        <%= link_to "Users", users_path, class: "btn btn-large" %>
+        <%= link_to "Users", users_path, class: "btn btn-primary btn-large" %>
       <% end %>
       </div>
     <% else %>
