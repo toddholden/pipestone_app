@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121227220231) do
+ActiveRecord::Schema.define(:version => 20130110193705) do
 
   create_table "animals", :force => true do |t|
     t.date     "date"
@@ -19,9 +19,18 @@ ActiveRecord::Schema.define(:version => 20121227220231) do
     t.string   "allflex"
     t.text     "comments"
     t.integer  "sale_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "sold",       :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "sold",            :default => false
+    t.string   "temperature"
+    t.string   "old_tag"
+    t.string   "months_pregnant"
+    t.string   "bruc"
+    t.string   "chv"
+    t.integer  "owner"
+    t.string   "breed"
+    t.string   "sex"
+    t.string   "age"
   end
 
   add_index "animals", ["sale_id"], :name => "index_animals_on_sale_id"
