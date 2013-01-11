@@ -28,11 +28,14 @@ class AnimalsController < ApplicationController
   # GET /animals/new.json
   def new
     @animal = Animal.new
+    @animal.person_id = params[:person_id]
+    @people = Person.all(:order => :lastname)
   end
 
   # GET /animals/1/edit
   def edit
     @animal = Animal.find(params[:id])
+    @people = Person.all(:order => :lastname)
   end
 
   # POST /animals

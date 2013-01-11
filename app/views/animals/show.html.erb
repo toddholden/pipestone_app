@@ -6,7 +6,9 @@
 </p>
 <p>
   <strong>Owner:</strong>
-  <%= @animal.owner %>
+  <% if @animal.person_id %>
+    <%= @animal.person.firstname + " " + @animal.person.lastname %>
+  <% end %>
 </p>
 <p>
   <strong>Breed:</strong>

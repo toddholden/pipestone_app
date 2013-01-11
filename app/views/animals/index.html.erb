@@ -30,7 +30,11 @@
 <% @animals.each do |animal| %>
   <tr>
     <td><span class="date"><%= animal.date %></span></td>
-    <td><%= animal.owner %></td>
+    <td>
+      <% if animal.person_id %>
+        <%= animal.person.firstname + " " + animal.person.lastname %>
+      <% end %>
+    </td>
     <td><%= animal.allflex %></td>
     <td><%= animal.breed %></td>
     <td><%= animal.sex %></td>
