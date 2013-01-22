@@ -1,9 +1,16 @@
 <% provide(:title, 'Sales') %>
-<h1>Listing sales</h1>
-
-<div class="toolbar pull-left">
-  <%= link_to 'New Sale', new_sale_path, :class => 'btn' %>
-  <%= will_paginate :class => 'pagination-mini' %>
+<div class="row">
+  <div class="span2">
+    <h1>Sales</h1>
+  </div>
+</div>
+<div class="row toolbar">
+  <div class="span5 pull-left">
+    <%= link_to 'New Sale', new_sale_path, :class => 'btn btn-primary btn-large' %>
+  </div>
+  <div class="span5 pull-left">
+    <%= will_paginate :class => 'pagination-mini' %>
+  </div>
 </div>
 
 <table class="table table-striped">
@@ -17,7 +24,7 @@
 <% @sales.each do |sale| %>
   <tr>
     <td><%= sale.sale_date %></td>
-    <td><%= name + ", " + sale.person.firstname %></td>
+    <td><%= link_to (sale.person.lastname + ", " + sale.person.firstname), sale.person %></td>
     <td><%= sale.buyer_number %></td>
     <td>
       <%= link_to 'Show', sale %> / 

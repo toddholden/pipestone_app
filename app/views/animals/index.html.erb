@@ -1,13 +1,26 @@
 <% provide(:title, 'Animals') %>
-<h1>Viewing and entering animals</h1>
-
-<div class="toolbar pull-left">
-  <%= link_to 'Enter a new animal', new_animal_path, :class => 'btn btn-primary'  %>
+<div class="row">
+<div class="span2">
+  <h1>Animals</h1>
 </div>
-<div class="toolbar pull-right">
+<div class="pull-right">
+    <%= form_tag animals_path, :class => 'form-search inline', :method => 'get' do %>
+      <%= text_field_tag :search, params[:search], :class => 'span3' %>
+      <%= submit_tag "Search", :class => 'btn', :name => nil %>
+      <% if (params[:search]) %> 
+          <%= link_to "Clear search", animals_path, :class => 'btn' %>
+      <% end %>
+    <% end %>
+</div>
+</div>
+<div class="row toolbar">
+<div class="span5 pull-left">
+  <%= link_to 'New animal', new_animal_path, :class => 'btn btn-large btn-primary'  %>
+</div>
+<div class="pull-right">
   <%= will_paginate %>
 </div>
-
+</div>
 <table class="table table-striped">
   <tr>
     <th><%= sortable "date" %></th>
