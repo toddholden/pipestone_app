@@ -64,5 +64,6 @@
 
 <div >
   <%= link_to 'Edit', edit_animal_path(@animal), :class => 'btn btn-primary' %>
+  <%= link_to 'Next', next_url(:id => @animal.id), :class => 'btn' %> 
   <%= link_to 'Animals list', animals_path, :class => 'btn' %>
 </div>

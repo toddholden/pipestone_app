@@ -3,7 +3,7 @@ PipestoneApp::Application.routes.draw do
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy', :via => :delete
-  match '/animals/next', :to => 'animals#next'
+  match '/animals/:id/next', :to => 'animals#create_sequential_animal', :as => 'next'
   #match '/animals/:id/animal_assignment', :to => 'animals#animal_assignment'
   #match '/animals/:id/remove_animal_from_sale', :to => 'animals#remove_animal_from_sale'
 

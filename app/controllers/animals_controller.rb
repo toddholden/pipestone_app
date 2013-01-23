@@ -82,19 +82,22 @@ class AnimalsController < ApplicationController
     end
   end
   
-  def next
-    @animal = Animal.new(params[:animal])    
-    @animal.metal1 = metal_increment(Animal.last.metal1)
-
-    respond_to do |format|
-      if @animal.save
-        format.html { redirect_to Animal.new(params[:id]), notice: 'Animal was successfully created.' }
-        format.json { render json: @animal, status: :created, location: @animal }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @animal.errors, status: :unprocessable_entity }
-      end
-    end
+  def create_sequential_animal
+    @animal = Animal.find(params[:id])
+    @new_animal = @animal.dup
+    @new_animal.metal1 = metal_increment(@animal.metal1)
+    @new_animal.old_tag = nil
+    @new_animal.age = nil
+    @new_animal.chv = nil
+    @new_animal.allflex = nil
+    @new_animal.bruc = nil
+    @new_animal.months_pregnant = nil
+    @new_animal.temperature = nil
+    @new_animal.comments = nil
+    @new_animal.sold = 0
+    @new_animal.sale_id = nil
+    @new_animal.save
+    redirect_to :action => :edit, :id => @new_animal.id
   end
 
   def animal_assignment
