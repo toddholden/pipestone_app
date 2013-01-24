@@ -84,20 +84,24 @@ class AnimalsController < ApplicationController
   
   def create_sequential_animal
     @animal = Animal.find(params[:id])
-    @new_animal = @animal.dup
-    @new_animal.metal1 = metal_increment(@animal.metal1)
-    @new_animal.old_tag = nil
-    @new_animal.age = nil
-    @new_animal.chv = nil
-    @new_animal.allflex = nil
-    @new_animal.bruc = nil
-    @new_animal.months_pregnant = nil
-    @new_animal.temperature = nil
-    @new_animal.comments = nil
-    @new_animal.sold = 0
-    @new_animal.sale_id = nil
-    @new_animal.save
-    redirect_to :action => :edit, :id => @new_animal.id
+    new_animal = @animal.dup
+    if new_animal.metal1.last(4) != "9999"
+      new_animal.metal1 = metal_increment(new_animal.metal1)
+    else
+      new_animal.metal1 = nil
+    end
+    new_animal.old_tag = nil
+    new_animal.age = nil
+    new_animal.chv = nil
+    new_animal.allflex = nil
+    new_animal.bruc = nil
+    new_animal.months_pregnant = nil
+    new_animal.temperature = nil
+    new_animal.comments = nil
+    new_animal.sold = 0
+    new_animal.sale_id = nil
+    new_animal.save(:validate => false)
+    redirect_to :action => :edit, :id => new_animal.id
   end
 
   def animal_assignment
@@ -128,7 +132,7 @@ class AnimalsController < ApplicationController
       n = n.to_s.last(4)
       metal1 = metal + n
     else
-      nil
+      metal1 = nil
     end
   end
   

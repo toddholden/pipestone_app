@@ -64,6 +64,8 @@
 
 <div >
   <%= link_to 'Edit', edit_animal_path(@animal), :class => 'btn btn-primary' %>
+<% if @animal.metal1.last(4) != "9999" %>
   <%= link_to 'Next', next_url(:id => @animal.id), :class => 'btn' %> 
+<% end %>
   <%= link_to 'Animals list', animals_path, :class => 'btn' %>
 </div>
