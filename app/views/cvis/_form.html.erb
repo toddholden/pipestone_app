@@ -1,0 +1,29 @@
+<%= form_for(@cvi) do |f| %>
+  <% if @cvi.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cvi.errors.count, "error") %> prohibited this cvi from being saved:</h2>
+
+      <ul>
+      <% @cvi.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cvi_number %><br />
+    <%= f.text_field :cvi_number %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :person_id %><br />
+    <%= f.number_field :person_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

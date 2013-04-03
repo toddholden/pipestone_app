@@ -1,0 +1,27 @@
+<h1>Listing cvis</h1>
+
+<table>
+  <tr>
+    <th>Cvi number</th>
+    <th>Date</th>
+    <th>Person</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cvis.each do |cvi| %>
+  <tr>
+    <td><%= cvi.cvi_number %></td>
+    <td><%= cvi.date %></td>
+    <td><%= cvi.person_id %></td>
+    <td><%= link_to 'Show', cvi %></td>
+    <td><%= link_to 'Edit', edit_cvi_path(cvi) %></td>
+    <td><%= link_to 'Destroy', cvi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cvi', new_cvi_path %>

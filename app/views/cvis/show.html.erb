@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cvi number:</b>
+  <%= @cvi.cvi_number %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @cvi.date %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%= @cvi.person_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_cvi_path(@cvi) %> |
+<%= link_to 'Back', cvis_path %>

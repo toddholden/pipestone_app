@@ -1,5 +1,11 @@
 PipestoneApp::Application.routes.draw do
 
+  resources :cvis
+
+  get "cvi/new"
+
+  get "cvi/show"
+
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy', :via => :delete
