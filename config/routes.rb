@@ -1,10 +1,5 @@
 PipestoneApp::Application.routes.draw do
 
-  resources :cvis
-
-  get "cvi/new"
-
-  get "cvi/show"
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
@@ -13,6 +8,7 @@ PipestoneApp::Application.routes.draw do
   #match '/animals/:id/animal_assignment', :to => 'animals#animal_assignment'
   #match '/animals/:id/remove_animal_from_sale', :to => 'animals#remove_animal_from_sale'
 
+  resources :cvis
   resources :sales
   resources :people
   resources :animals do
