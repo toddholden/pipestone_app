@@ -1,8 +1,9 @@
 <tr>
-  <td><span class="date"><%= animal.date %></span></td>
+  <td><%= animal.breed %></td>
   <td><%= link_to animal.metal1, animal %></td>
   <td><%= animal.allflex %></td>
-  <td><%= animal.comments %></td>
+  <td><%= animal.sex %></td>
+  <td><%= animal.old_tag %></td>
   <td class="center">
     <%= link_to("X", { :controller => "animals", :action => "remove_animal_from_sale", :animal => animal.id }, { :method => 'post'}) %>
   </td> 

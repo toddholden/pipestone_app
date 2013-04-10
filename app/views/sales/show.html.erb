@@ -2,8 +2,12 @@
 <div class="container">
   <h1>Sale</h1>
 </div>
+<div class="row toolbar">
+
+</div>
+
 <div class="row">
-<aside class="span3">
+<aside class="span4">
 <section>
 <h1><%= name %></h1>
 <p>
@@ -15,18 +19,20 @@
 <div class="btn-group">
   <%= link_to 'Edit', edit_sale_path(@sale), :class => 'btn' %>
   <%= link_to 'Back to sales', sales_path, :class => 'btn' %>
+  <%= link_to 'Create a CVI', new_cvi_path, :class => 'btn' %>
 </div>
 </section>
 </aside>
 
-<div class="span9">
+<div class="span8">
   <% if @sale.animals.any? %>
     <table class="table table-condensed">
       <tr>
-        <th>Date</th>
+        <th>Breed</th>
         <th>Metal1</th>
         <th>Allflex</th>
-        <th>Comments</th>
+        <th>Sex</th>
+        <th>Old Tag</th>
         <th>Remove</th>
       </tr>
       <%= render @animal %>

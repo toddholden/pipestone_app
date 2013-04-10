@@ -6,6 +6,7 @@ class Animal < ActiveRecord::Base
 
   belongs_to :sale
   belongs_to :person
+  belongs_to :cvi
 
   def self.search(search)
     if search

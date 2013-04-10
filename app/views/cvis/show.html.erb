@@ -1,18 +1,168 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Cvi number:</b>
-  <%= @cvi.cvi_number %>
-</p>
-
-<p>
+<% provide(:title, "CVI 41-" + @cvi.cvi_number) %>
+<h1>Cvi number: 41-<%= @cvi.cvi_number %></h1>
+<table class="table table-bordered table-condensed">
+  <tr>
+    <td>
+      <p>
+        <address>
+        Minnesota Board of Animal Health<br>
+        625 Robert St. North<br>
+        St. Paul, MN 55155 (651) 296-2942
+        </address>
+      </p>
+    </td>
+    <td class="text-center">
+      <p class="lead">
+        Minnesota Certificate of Veterinary Inspection<br>
+        <small>Revised April 2013</small>
+      </p>
+    </td>
+    <td>
+      <p class="lead">41-<%= @cvi.cvi_number %></p>
+    </td>
+  </tr>
+</table>
+<table class="table table-bordered table-condensed">
+  <tr>
+    <td>
+      <p><small>1. Owner/Consignor's Name:</small><br>
+         Pipestone Livestock Auction Market</p>
+    </td>
+    <td>
+      <p>
+        <small>5. Consignee's Name:</small><br>
+        <%= @cvi.person.firstname + " " + @cvi.person.lastname %>
+      </p>
+    </td>
+    <td>
+      <p>
+        <small>10. Number in Shipment:</small><br>
+        <%= @cvi.animals.count %>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>
+        <small>2. Owner Consignor's Address:</small><br>
+        <address>
+        1500 7th Street, SE<br>
+        Pipestone, MN 56164<br>
+        (507) 825-3306
+        </address>
+      </p>
+    </td>
+    <td>
+      <p>
+        <small>6. Consignee's Address:</small><br>
+        <address>
+        <%= @cvi.person.address %><br>
+        <%= @cvi.person.city + ", " + @cvi.person.state + " " + @cvi.person.zipcode %> 
+        <address>
+      </p>
+    </td>
+    <td rowspan="2">
+      <p>
+        <small>11. Permit Number (if required by state of destination):</small>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><small>
+        3. Carrier Name and Address:<br>
+        &#9723;Truck &#9723;Air &#9723;Rail &#9723;Water &#9723;Car
+      </small></p>
+    </td>
+    <td>
+      <p><small>
+        7. Destination (if different than above):
+      </small></p>
+    </td>
+  </tr>
+</table>
+<table class="table table-bordered table-condensed">
+  <tr>
+    <td>
+      <p><small>
+          4. Species: &#9723;Cattle &#9723;Horse &#9723;Swine<br>
+          &#9723;Cat &#9723;Dog &#9723;Avian &#9723;Other____________<br>
+          &#9723;Goat &#9723;Sheep (Scrapie flock #___________)
+      </small></p>
+    </td>
+    <td>
+      <p><small>
+        8. Reason for Movement:<br>
+          &#9723;Breeding &#9723;Slaughter &#9723;Feeding<br>
+          &#9723;Sale &#9723;Show/Exhibition<br>
+          &#9723;Travel &#9723;Other_____________
+      </small></p>
+    </td>
+    <td>
+      <p><small>
+        9. Origin of Shipment<br>
+        County:<br>
+        Market:<br>
+      </small></p>
+    </td>
+    <td>
+      <p><small>
+        12. Herd of Flock Status:<br>
+        Disease:<br>
+        Status:<br>
+        Status/Herd Number:<br>
+        Date of last herd test:
+      </small></p>
+    </td>
+  </tr>
+</table>
+<table class="table table-condensed table-bordered">
+  <tr>
+    <td rowspan=2><p><small>Official Eartag,<br>Tattoo or Other<br> Permanent ID</small></p></td>
+    <td rowspan=2><p><small>Description of Animal<br>or Registry Name<br>and Number</small></p></td>
+    <td rowspan=2><p><small>Age</small><p></td>
+    <td rowspan=2><p><small>Sex</small></p></td>
+    <td rowspan=2><p><small>Breed</small></p></td>
+    <td rowspan=2><p><small>Bruc Vacc Tatt</small></p></td>
+    <td colspan=3><p><small>Tuberculosis</small></p></td>
+    <td colspan=3><p><small>Other Test</small></p></td>
+    <td colspan=2><p><small>Other Vaccine or Treatment</small></p></td>
+  </tr>
+  <tr>
+    <td><p><small>Date Injected</small></p></td>
+    <td><p><small>Date Read</small></p></td>
+    <td><p><small>Results</small></p></td>
+    <td><p><small>Tested for</small></p></td>
+    <td><p><small>Date</small></p></td>
+    <td><p><small>Results</small></p></td>
+    <td><p><small>Product</small></p></td>
+    <td><p><small>Date</small></p></td>
+  </tr>
+  <tr>
+    <td><%= @cvi.animal.metal1 %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr> 
+</table>
+<p class="text-center">
   <b>Date:</b>
   <%= @cvi.date %>
 </p>
 
 <p>
-  <b>Person:</b>
-  <%= @cvi.person_id %>
+  <b>Consignee:</b>
+  <%= @cvi.person.firstname + " " + @cvi.person.lastname %>
 </p>
 
 
