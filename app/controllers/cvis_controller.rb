@@ -14,6 +14,7 @@ class CvisController < ApplicationController
   # GET /cvis/1.json
   def show
     @cvi = Cvi.find(params[:id])
+    @animal = @cvi.animals
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +26,8 @@ class CvisController < ApplicationController
   # GET /cvis/new.json
   def new
     @cvi = Cvi.new
+    @cvi.person_id = params[:person_id]
+    @people = Person.all(:order => :lastname)
 
     respond_to do |format|
       format.html # new.html.erb

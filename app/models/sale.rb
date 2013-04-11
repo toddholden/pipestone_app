@@ -4,6 +4,6 @@ class Sale < ActiveRecord::Base
   validates :buyer_number, :presence => true
 
   has_many   :animals
-  has_many   :cvis
+  has_one    :cvi
   belongs_to :person
 end

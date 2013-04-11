@@ -138,22 +138,9 @@
     <td><p><small>Product</small></p></td>
     <td><p><small>Date</small></p></td>
   </tr>
-  <tr>
-    <td><%= @cvi.animal.metal1 %></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr> 
+  <% if @cvi.animals.any? %>
+    <%= render @animal_cvi %>
+  <% end %>
 </table>
 <p class="text-center">
   <b>Date:</b>

@@ -1,4 +1,5 @@
 <%= form_for(@cvi) do |f| %>
+  <%= f.hidden_field :sale_id %>
   <% if @cvi.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cvi.errors.count, "error") %> prohibited this cvi from being saved:</h2>
@@ -12,16 +13,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :cvi_number %><br />
+    <%= f.label :cvi_number %>
     <%= f.text_field :cvi_number %>
   </div>
   <div class="field">
-    <%= f.label :date %><br />
+    <%= f.label :date %>
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :person_id %><br />
-    <%= f.number_field :person_id %>
+    <%= f.label :buyer_name %>
+    <%= select(:cvi, :person_id, (options_from_collection_for_select(@people, :id, :name_by_last, @cvi.person_id )), :class => 'input-medium span3' ) %> 
+    <p><small>Don't see the person you are looking for? <%= link_to 'Add a new person.', new_person_path %></small></p>
   </div>
   <div class="actions">
     <%= f.submit %>
