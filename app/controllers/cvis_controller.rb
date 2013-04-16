@@ -14,7 +14,7 @@ class CvisController < ApplicationController
   # GET /cvis/1.json
   def show
     @cvi = Cvi.find(params[:id])
-    @animal = @cvi.animals
+    @animals = @cvi.animals
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,8 +26,9 @@ class CvisController < ApplicationController
   # GET /cvis/new.json
   def new
     @cvi = Cvi.new
-    @cvi.person_id = params[:person_id]
+    @cvi.sale_id = params[:sale_id]
     @people = Person.all(:order => :lastname)
+
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,6 +45,9 @@ class CvisController < ApplicationController
   # POST /cvis.json
   def create
     @cvi = Cvi.new(params[:cvi])
+    if (@cvi.sale_id && !@cvi.person_id) 
+      @cvi.person_id = @cvi.sale_id.person_id
+    end
 
     respond_to do |format|
       if @cvi.save

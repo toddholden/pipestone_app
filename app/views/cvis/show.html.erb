@@ -139,7 +139,24 @@
     <td><p><small>Date</small></p></td>
   </tr>
   <% if @cvi.animals.any? %>
-    <%= render @animal_cvi %>
+    <% @animals.each do |animal| %>
+      <tr>
+        <td><%= animal.breed %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>   
+    <% end %>
   <% end %>
 </table>
 <p class="text-center">
