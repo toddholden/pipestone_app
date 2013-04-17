@@ -9,7 +9,15 @@ $grayMediumLight: #eaeaea;
   -webkit-box-sizing: border-box; 
   box-sizing: border-box;
 }
+@mixin cell($pad) {
+  margin:0px;
+  padding:$pad;
+}
 
+/* bootstrap fixes */
+.dropdown-menu {
+  min-width: 0;
+}
 /* universal */
 
 html {
@@ -74,14 +82,13 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
+  color: #333333;
   letter-spacing: -1px;
   padding-top: 9px;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 1;
   &:hover {
-    color: white;
+    color: #333333;
     text-decoration: none;
   }
 }
@@ -209,6 +216,33 @@ th .desc {
 
 /* pagination */
 .pagination {
-  height:auto;
   margin:auto;
+  font-size:12px;
+  li {
+    line-height:16px;
+  }
+}
+
+/* CVI styling */
+table.cvi{
+  background:white;
+  border-radius:0px;
+  border-collapse:collapse;
+  border: {
+    style:solid;
+    width:thin;
+    color:#333333;
+  } 
+  @include cell(5px);
+  td {
+    @extend table.cvi;
+  }
+  p,address,small{
+    line-height:1.2em;
+    @include cell(0px);
+    color:#333333;
+    .lead{
+      font-weight:bold;
+    }
+  }
 }

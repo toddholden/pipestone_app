@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 
 gem 'rack'
 gem 'rails', '3.2.8'
-gem 'bootstrap-sass', '2.0.4'
+gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'jquery-rails'
 gem 'faker', '1.1.2'

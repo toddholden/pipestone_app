@@ -15,18 +15,30 @@ namespace :db do
     Animal.create!(date: Time.now,
                  metal1:"41AAA1234",
                  allflex: "23563274",
-                 comments: "Lorem ipsum")
+                 breed: "HOL",
+                 comments: "Lorem ipsum",
+                 sex:"M",
+                 old_tag:"Y123")
                  
     50.times do |n|
       date = rand(2.years).ago 
       metal1 = Faker::Base.regexify(/^[1-9][0-9][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9]$/)
-      allflex = "#{n+2}"
-      comment = Faker::Lorem.sentence(10) 
+      allflex = Faker::Base.regexify(/^(MN|WI|SD)[0-9]{5}$/)
+      comment = Faker::Lorem.sentence(word_count = 4, supplemental = false) 
+      breed = Faker::Base.regexify(/^[A-Z]{3}$/)
+      sex = Faker::Base.regexify(/^(M|F)$/)
+      age = Faker::Base.regexify(/^[1-9](m|y)$/)
+      old_tag = Faker::Base.regexify(/^[A-Z][0-9]{3}$/)
+      owner = Faker::Base.regexify(/^[1-4]?\d$/)
       Animal.create!(date: date,
                    metal1: metal1,
                    allflex: allflex,
-                   comments: comment
-                   )
+                   comments: comment,
+                   breed: breed,
+                   sex: sex,
+                   age: age,
+                   person_id: owner,
+                   old_tag: old_tag)
     end
 
     10.times do |n|

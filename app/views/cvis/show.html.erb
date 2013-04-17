@@ -1,8 +1,8 @@
 <% provide(:title, "CVI 41-" + @cvi.cvi_number) %>
 <h1>Cvi number: 41-<%= @cvi.cvi_number %></h1>
-<table class="table table-bordered table-condensed">
+<table class="table table-bordered table-condensed cvi">
   <tr>
-    <td>
+    <td style="width:30%;">
       <p>
         <address>
         Minnesota Board of Animal Health<br>
@@ -11,7 +11,7 @@
         </address>
       </p>
     </td>
-    <td class="text-center">
+    <td class="center">
       <p class="lead">
         Minnesota Certificate of Veterinary Inspection<br>
         <small>Revised April 2013</small>
@@ -22,7 +22,7 @@
     </td>
   </tr>
 </table>
-<table class="table table-bordered table-condensed">
+<table class="cvi table table-bordered table-condensed">
   <tr>
     <td>
       <p><small>1. Owner/Consignor's Name:</small><br>
@@ -81,7 +81,7 @@
     </td>
   </tr>
 </table>
-<table class="table table-bordered table-condensed">
+<table class="cvi table table-bordered table-condensed">
   <tr>
     <td>
       <p><small>
@@ -116,7 +116,7 @@
     </td>
   </tr>
 </table>
-<table class="table table-condensed table-bordered">
+<table class="cvi table table-condensed table-bordered">
   <tr>
     <td rowspan=2><p><small>Official Eartag,<br>Tattoo or Other<br> Permanent ID</small></p></td>
     <td rowspan=2><p><small>Description of Animal<br>or Registry Name<br>and Number</small></p></td>
@@ -141,11 +141,11 @@
   <% if @cvi.animals.any? %>
     <% @animals.each do |animal| %>
       <tr>
+        <td><%= animal.metal1 %></td>
+        <td><%= animal.old_tag %></td>
+        <td><%= animal.age %></td>
+        <td><%= animal.sex %></td>
         <td><%= animal.breed %></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -159,7 +159,7 @@
     <% end %>
   <% end %>
 </table>
-<p class="text-center">
+<p>
   <b>Date:</b>
   <%= @cvi.date %>
 </p>
