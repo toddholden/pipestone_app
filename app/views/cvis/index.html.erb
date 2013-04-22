@@ -1,23 +1,29 @@
 <h1>Listing cvis</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
-    <th>Cvi number</th>
+    <th>CVI number</th>
     <th>Date</th>
-    <th>Person</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Consignee</th>
+    <th>Options</th>
   </tr>
 
 <% @cvis.each do |cvi| %>
   <tr>
     <td><%= cvi.cvi_number %></td>
     <td><%= cvi.date %></td>
-    <td><%= cvi.person_id %></td>
-    <td><%= link_to 'Show', cvi %></td>
-    <td><%= link_to 'Edit', edit_cvi_path(cvi) %></td>
-    <td><%= link_to 'Destroy', cvi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to cvi.person.firstname + " " + cvi.person.lastname, cvi.person %></td>
+    <td>
+      <%= link_to(cvi) do %>
+        <i class="icon-eye-open"></i>
+      <% end %>
+      <%= link_to(edit_cvi_path(cvi)) do %>
+        <i class="icon-pencil"></i>
+      <% end %>
+      <%= link_to(cvi, method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' }) do %>
+        <i class="icon-remove"></i>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>

@@ -186,6 +186,9 @@ select {
 
 /* tables */
 
+table.small td { 
+      font-size: 12px;
+}
 .date {
   white-space: nowrap;
 }
@@ -199,21 +202,19 @@ td.center {
 
 th {
   padding: 4px 10px;
-}
-th .asc {
-  background-image: url(<%= asset_path 'up_arrow.png' %>);
-  background-repeat: no-repeat;
-  background-position: right center;
-  padding-right:15px;
-}
-
-th .desc {
+  .asc {
+    background-image: url(<%= asset_path 'up_arrow.png' %>);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right:15px;
+  }
+  .desc {
   background-image: url(<%= asset_path 'down_arrow.png' %>);
   background-repeat: no-repeat;
   background-position: right center;
   padding-right:15px;
+  }
 }
-
 /* pagination */
 .pagination {
   margin:auto;

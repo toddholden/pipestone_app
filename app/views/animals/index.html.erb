@@ -14,13 +14,13 @@
 </div>
 <div class="row toolbar">
 <div class="span2 pull-left">
-  <%= link_to 'New animal', new_animal_path, :class => 'btn btn-large btn-primary'  %>
+  <%= link_to 'New animal', new_animal_path, :class => 'btn btn-primary'  %>
 </div>
 <div class="pull-right">
   <%= will_paginate %>
 </div>
 </div>
-<table class="table table-striped">
+<table class="table table-striped small">
   <tr>
     <th><%= sortable "date" %></th>
     <th>Owner</th>
@@ -34,7 +34,6 @@
     <th>Temp</th>
     <th>Preg</th>
     <th>Bruc</th> 
-    <th>Comments</th>
     <th>Sold?</th>
     <th>Options</th>
   </tr>
@@ -44,7 +43,7 @@
     <td><span class="date"><%= animal.date %></span></td>
     <td>
       <% if animal.person_id %>
-        <%= animal.person.firstname + " " + animal.person.lastname %>
+        <%= link_to animal.person.firstname + " " + animal.person.lastname, animal.person %>
       <% end %>
     </td>
     <td><%= animal.allflex %></td>
@@ -57,16 +56,15 @@
     <td><%= animal.temperature %></td>
     <td><%= animal.months_pregnant %></td>
     <td><%= animal.bruc %></td>
-    <td class="comments"><%= animal.comments %></td>
     <td class="center">
       <% if animal.sale_id %>
         <%= link_to "\u2713", animal.sale %>
       <% end %>
     </td>
-    <td>
-      <%= link_to 'Edit', edit_animal_path(animal) %> /
-      <%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %> /
-      <%= link_to 'View', animal %>
+    <td class="center">
+      <%= link_to(animal) do %><i class="icon-eye-open"></i><% end  %>
+      <%= link_to(edit_animal_path(animal)) do %><i class="icon-pencil"></i><% end %> 
+      <%= link_to(animal, method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' }) do %><i class="icon-remove"></i><% end %>
     </td>
   </tr>
 <% end %>

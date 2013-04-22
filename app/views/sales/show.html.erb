@@ -17,9 +17,9 @@
   <%= @sale.sale_date %>
 </p>
 <div class="btn-group">
-  <%= link_to 'Edit', edit_sale_path(@sale), :class => 'btn' %>
-  <%= link_to 'Back to sales', sales_path, :class => 'btn' %>
-  <%= link_to 'Create a CVI', new_cvi_path(:sale_id => @sale.id), :class => 'btn' %>
+  <%= link_to 'Edit', edit_sale_path(@sale), :class => 'btn btn-small' %>
+  <%= link_to 'Back to sales', sales_path, :class => 'btn btn-small' %>
+  <%= link_to_if(@sale.animals.any?, 'Create a CVI', new_cvi_path(:sale_id => @sale.id), :class => 'btn btn-small') %>
 </div>
 </section>
 </aside>
@@ -44,7 +44,6 @@
 </div>
 
 <hr>
-
 <div class="container">
   <h2>Select animals</h2>
 
