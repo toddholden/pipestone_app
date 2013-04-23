@@ -1,5 +1,12 @@
 <% provide(:title, 'Animals') %>
 <h1>Viewing animal <small><%= @animal.metal1 %></small></h1>
+<% if @animal.sale_id %>
+  <p><strong>Sold to: 
+    <%= link_to(@animal.sale) do %>
+      <%=@animal.sale.person.firstname + " " + @animal.sale.person.lastname + " (" + @animal.sale.sale_date.to_s + ")" %>
+    <% end %>
+  </strong></p>
+<% end %>
 <p>
   <strong>Date:</strong>
   <%= @animal.date %>
@@ -54,14 +61,6 @@
   <strong>Comments:</strong>
   <%= @animal.comments %>
 </p>
-
-<% if @animal.sale_id %>
-  <p>
-    <strong>Sale:</strong>
-    <%= @animal.sale_id %>
-  </p>
-<% end %>
-
 <div >
   <%= link_to 'Edit', edit_animal_path(@animal), :class => 'btn btn-primary' %>
 <% if @animal.metal1.last(4) != "9999" %>

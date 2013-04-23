@@ -28,7 +28,7 @@ class CvisController < ApplicationController
     @cvi = Cvi.new
     @cvi.sale_id = params[:sale_id]
     @people = Person.all(:order => :lastname)
-
+    @cvi.cvi_number = @cvi.newCviNumber
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,6 +39,7 @@ class CvisController < ApplicationController
   # GET /cvis/1/edit
   def edit
     @cvi = Cvi.find(params[:id])
+    @people = Person.all(:order => :lastname)
   end
 
   # POST /cvis

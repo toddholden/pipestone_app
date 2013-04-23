@@ -22,10 +22,10 @@
   </div>
   <div class="field">
     <%= f.label :buyer_name %>
-    <%= select(:cvi, :person_id, (options_from_collection_for_select(@people, :id, :name_by_last, @cvi.person_id )), :class => 'input-medium span3' ) %> 
+    <%= select(:cvi, :person_id, (options_from_collection_for_select(@people, :id, :name_by_last, @cvi.sale.person_id )), :class => 'input-medium span3', :include_blank => "Choose a person" ) %> 
     <p><small>Don't see the person you are looking for? <%= link_to 'Add a new person.', new_person_path %></small></p>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

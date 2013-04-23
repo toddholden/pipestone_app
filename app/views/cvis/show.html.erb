@@ -1,4 +1,4 @@
-<% provide(:title, "CVI 41-" + @cvi.cvi_number) %>
+<% provide(:title, "CVI P41-" + @cvi.cvi_number) %>
 <h1>Cvi number: 41-<%= @cvi.cvi_number %></h1>
 <table class="table table-bordered table-condensed cvi">
   <tr>
@@ -18,7 +18,7 @@
       </p>
     </td>
     <td>
-      <p class="lead">41-<%= @cvi.cvi_number %></p>
+      <p class="lead">P41-<%= @cvi.cvi_number %></p>
     </td>
   </tr>
 </table>
@@ -140,7 +140,7 @@
   </tr>
   <% if @cvi.animals.any? %>
     <% @animals.each do |animal| %>
-      <tr>
+      <tr class="animal-data">
         <td><%= animal.metal1 %></td>
         <td><%= animal.old_tag %></td>
         <td><%= animal.age %></td>
@@ -159,16 +159,29 @@
     <% end %>
   <% end %>
 </table>
-<p>
-  <b>Date:</b>
-  <%= @cvi.date %>
-</p>
-
-<p>
-  <b>Consignee:</b>
-  <%= @cvi.person.firstname + " " + @cvi.person.lastname %>
-</p>
-
-
+<table class="cvi table table-condensed table-bordered">
+  <tr>
+    <td colspan=3 width="75%"><p><small>Certificate of Issuing Veterinarian: I certify as an accredited veterinarian that the described animals have been inspected by me and that they are not showing signs of infectious, contagious and/or communicable disease (except where noted). The vaccination and results of tests are as indicated on the certificate. To the best of my knowledge, the animals listed on the certificate meet the state of destination and Federal Interstate requirements. No warranty is made or implied.</small></p></td>
+    <td colspan=2 rowspan=3><p><small>Certificate of Owner/Agent: The animals in this shipment are those certified to and listed on this certificate.<br>Owner/Agent Signature</small></p></td>
+  </tr>
+  <tr>
+    <td colspan=3><p><small>&#9723;I hereby certify that the animal(s) in this shipment is (are), to the best of my knowledge, acclimated to air temperatures lower than 7.2&#176;C (45&#176;F)</small></p></td>
+  </tr>
+  <tr>
+    <td colspan=2><p><small>Accredited Veterinarian Signature</small></p></td>
+    <td><p><small>Vet Code #</small></p></td>
+  </tr>
+  <tr>
+    <td colspan=3><p><small>Address</small><br>P.O. Box #188 Pipestone, MN 56164</p></td>
+    <td colspan=2><p><small>Owner/Agent Name</small></p></td>
+  </tr>
+  <tr>
+    <td><p><small>Phone No.</small></p></td>
+    <td><p><small>Date Inspected</small></p></td>
+    <td><p><small>Date Issued</small></p></td>
+    <td><p><small>Phone</small></p></td>
+    <td><p><small>Date of Owner Signature</small></p></td>
+  </tr>
+</table>
 <%= link_to 'Edit', edit_cvi_path(@cvi) %> |
 <%= link_to 'Back', cvis_path %>
