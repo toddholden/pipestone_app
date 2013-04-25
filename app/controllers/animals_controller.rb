@@ -42,13 +42,14 @@ class AnimalsController < ApplicationController
   # POST /animals.json
   def create
     @animal = Animal.new(params[:animal])
+    @people = Person.all
 
     respond_to do |format|
       if @animal.save
         format.html { redirect_to @animal, notice: 'Animal was successfully created.' }
         format.json { render json: @animal, status: :created, location: @animal }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @animal.errors, status: :unprocessable_entity }
       end
     end
@@ -58,6 +59,7 @@ class AnimalsController < ApplicationController
   # PUT /animals/1.json
   def update
     @animal = Animal.find(params[:id])
+    @people = Person.all
 
     respond_to do |format|
       if @animal.update_attributes(params[:animal])

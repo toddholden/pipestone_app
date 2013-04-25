@@ -17,7 +17,7 @@
     <%= f.label :date %>
     <%= f.date_select( "date", :order => [:month, :day, :year] ) %>
     <%= f.label :person_id %>
-    <%= select(:animal, :person_id, (options_from_collection_for_select(@people, :id, :name_by_last, @animal.person_id )), :class => 'input-medium span3', :include_blank => "Choose a person" ) %>
+    <%= select(:animal, :person_id, (options_from_collection_for_select(@people, :id, :name_by_last, @animal.person_id)), :include_blank => "Choose a person" ) %>
     <p><small>Don't see the person you are looking for? <%= link_to 'Add a new person.', new_person_path %></small></p>
     <%= f.label :breed %>
     <%= f.text_field :breed %>

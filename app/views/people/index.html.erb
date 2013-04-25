@@ -40,7 +40,11 @@
     <td><%= person.city %></td>
     <td><%= person.state %></td>
     <td><%= person.zipcode %></td>
-    <td><%= link_to 'Show', person %> / <%= link_to 'Edit', edit_person_path(person) %> / <%= link_to 'Delete', person, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' } %></td>
+    <td>
+      <%= link_to(person) do %><i class="icon-eye-open"></i><% end %>
+      <%= link_to(edit_person_path(person)) do %><i class="icon-pencil"></i><% end %>
+      <%= link_to(person, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }) do %><i class="icon-remove"></i><% end %>
+    </td>
   </tr>
 <% end %>
 </table>

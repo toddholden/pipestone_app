@@ -1,5 +1,4 @@
 <div class="center hero-unit">
-  <h1>Pipestone animal tracking application</h1>
     <% if signed_in? %>
       <div class="btn-group center">
         <%= link_to "Animals", animals_path, class: "btn btn-primary btn-large" %>
@@ -10,7 +9,20 @@
       <% end %>
       </div>
     <% else %>
-      <p><%= link_to "Sign in", signin_path, class: "btn btn-large" %></p>
+<h1>Sign in</h1>
+
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email, :class => "input-xlarge" %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, :class => "input-xlarge" %>
+    </div>
+      <%= f.submit "Sign in", class: "btn btn-large" %>
+    <% end %>
       <p>Not Registered? <%= link_to "Sign up", signup_path %></p>
     <% end %>
 </div>

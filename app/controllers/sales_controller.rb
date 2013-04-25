@@ -49,6 +49,7 @@ class SalesController < ApplicationController
   # POST /sales.json
   def create
     @sale = Sale.new(params[:sale])
+    @people = Person.all
 
     respond_to do |format|
       if @sale.save
@@ -65,6 +66,7 @@ class SalesController < ApplicationController
   # PUT /sales/1.json
   def update
     @sale = Sale.find(params[:id])
+    @people = Person.all
 
     respond_to do |format|
       if @sale.update_attributes(params[:sale])

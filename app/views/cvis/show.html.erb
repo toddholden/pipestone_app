@@ -1,5 +1,4 @@
 <% provide(:title, "CVI P41-" + @cvi.cvi_number) %>
-<h1>Cvi number: 41-<%= @cvi.cvi_number %></h1>
 <table class="table table-bordered table-condensed cvi">
   <tr>
     <td style="width:30%;">
@@ -118,25 +117,25 @@
 </table>
 <table class="cvi table table-condensed table-bordered">
   <tr>
-    <td rowspan=2><p><small>Official Eartag,<br>Tattoo or Other<br> Permanent ID</small></p></td>
-    <td rowspan=2><p><small>Description of Animal<br>or Registry Name<br>and Number</small></p></td>
-    <td rowspan=2><p><small>Age</small><p></td>
-    <td rowspan=2><p><small>Sex</small></p></td>
-    <td rowspan=2><p><small>Breed</small></p></td>
-    <td rowspan=2><p><small>Bruc Vacc Tatt</small></p></td>
-    <td colspan=3><p><small>Tuberculosis</small></p></td>
-    <td colspan=3><p><small>Other Test</small></p></td>
-    <td colspan=2><p><small>Other Vaccine or Treatment</small></p></td>
+    <td rowspan=2 class="center"><p><small>Official Eartag,<br>Tattoo or Other<br> Permanent ID</small></p></td>
+    <td rowspan=2 class="center"><p><small>Description of Animal<br>or Registry Name<br>and Number</small></p></td>
+    <td rowspan=2 class="center"><p class="vertical"><small>Age</small><p></td>
+    <td rowspan=2><p class="vertical"><small>Sex</small></p></td>
+    <td rowspan=2><p class="vertical"><small>Breed</small></p></td>
+    <td rowspan=2><p class="vertical"><small>Bruc Vacc<br> Tattoo</small></p></td>
+    <td colspan=3 class="center"><p><small>Tuberculosis</small></p></td>
+    <td colspan=3 class="center"><p><small>Other Test</small></p></td>
+    <td colspan=2 class="center"><p><small>Other Vaccine or Treatment</small></p></td>
   </tr>
   <tr>
-    <td><p><small>Date Injected</small></p></td>
-    <td><p><small>Date Read</small></p></td>
-    <td><p><small>Results</small></p></td>
-    <td><p><small>Tested for</small></p></td>
-    <td><p><small>Date</small></p></td>
-    <td><p><small>Results</small></p></td>
-    <td><p><small>Product</small></p></td>
-    <td><p><small>Date</small></p></td>
+    <td class="center"><p><small>Date Injected</small></p></td>
+    <td class="center"><p><small>Date Read</small></p></td>
+    <td class="center"><p><small>Results</small></p></td>
+    <td class="center"><p><small>Tested for</small></p></td>
+    <td class="center"><p><small>Date</small></p></td>
+    <td class="center"><p><small>Results</small></p></td>
+    <td class="center"><p><small>Product</small></p></td>
+    <td class="center"><p><small>Date</small></p></td>
   </tr>
   <% if @cvi.animals.any? %>
     <% @animals.each do |animal| %>
@@ -183,5 +182,4 @@
     <td><p><small>Date of Owner Signature</small></p></td>
   </tr>
 </table>
-<%= link_to 'Edit', edit_cvi_path(@cvi) %> |
-<%= link_to 'Back', cvis_path %>
+<%= link_to 'Edit', edit_cvi_path(@cvi), :class => 'btn btn-primary' %>

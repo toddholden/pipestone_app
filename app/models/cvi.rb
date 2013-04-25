@@ -7,6 +7,9 @@ class Cvi < ActiveRecord::Base
   has_many :animals, :through => :sale
 
   validates :person_id, :presence => true
+  validates :cvi_number, :presence => true, 
+            :uniqueness => { :message => "That CVI number has already been used." },
+            :numericality => { :only_integer => true }
 
   def newCviNumber
     cviBase = 0

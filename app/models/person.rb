@@ -3,7 +3,7 @@ class Person < ActiveRecord::Base
 
   has_many :sales
   has_many :animals
-  has_many :cvis
+  has_many :cvis, :through => :sale
 
   validates :firstname, :lastname, :address, :city, :state, :presence => true
 

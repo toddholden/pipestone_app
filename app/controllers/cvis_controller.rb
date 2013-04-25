@@ -1,8 +1,9 @@
 class CvisController < ApplicationController
+  before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   # GET /cvis
   # GET /cvis.json
   def index
-    @cvis = Cvi.all
+    @cvis = Cvi.all(:order => "cvi_number DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -29,6 +30,7 @@ class CvisController < ApplicationController
     @cvi.sale_id = params[:sale_id]
     @people = Person.all(:order => :lastname)
     @cvi.cvi_number = @cvi.newCviNumber
+    person_id = @cvi.person_id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -46,9 +48,7 @@ class CvisController < ApplicationController
   # POST /cvis.json
   def create
     @cvi = Cvi.new(params[:cvi])
-    if (@cvi.sale_id && !@cvi.person_id) 
-      @cvi.person_id = @cvi.sale_id.person_id
-    end
+    @people = Person.all
 
     respond_to do |format|
       if @cvi.save
@@ -65,6 +65,7 @@ class CvisController < ApplicationController
   # PUT /cvis/1.json
   def update
     @cvi = Cvi.find(params[:id])
+    @people = Person.all
 
     respond_to do |format|
       if @cvi.update_attributes(params[:cvi])

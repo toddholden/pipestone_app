@@ -1,5 +1,5 @@
-<h1>Listing cvis</h1>
-
+<h1>CVIs</h1>
+<p class="lead">To create a new CVI, chose a <%= link_to 'sale', sales_path %> and click the "Create CVI" button.</p>
 <table class="table table-striped">
   <tr>
     <th>CVI number</th>
@@ -14,20 +14,10 @@
     <td><%= cvi.date %></td>
     <td><%= link_to cvi.person.firstname + " " + cvi.person.lastname, cvi.person %></td>
     <td>
-      <%= link_to(cvi) do %>
-        <i class="icon-eye-open"></i>
-      <% end %>
-      <%= link_to(edit_cvi_path(cvi)) do %>
-        <i class="icon-pencil"></i>
-      <% end %>
-      <%= link_to(cvi, method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' }) do %>
-        <i class="icon-remove"></i>
-      <% end %>
+      <%= link_to(cvi) do %><i class="icon-eye-open"></i><% end %>
+      <%= link_to(edit_cvi_path(cvi)) do %><i class="icon-pencil"></i><% end %>
+      <%= link_to(cvi, method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' }) do %><i class="icon-remove"></i><% end %>
     </td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Cvi', new_cvi_path %>

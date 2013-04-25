@@ -50,6 +50,14 @@ textarea {
   margin-top:25px;
 }
 
+.vertical {
+  -webkit-transform: rotate(-90deg);/* Safari */
+  -moz-transform: rotate(-90deg);/* Firefox */
+  -ms-transform: rotate(-90deg);/* IE */
+  -o-transform: rotate(-90deg);/* Opera */
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);/* Internet Explorer */
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -226,6 +234,7 @@ th {
 
 /* CVI styling */
 table.cvi{
+  font-family:sans-serif;
   background:white;
   border-radius:0px;
   border-collapse:collapse;
@@ -242,6 +251,11 @@ table.cvi{
     font-size:12px;
     line-height:14px;
   }
+    .lead {
+      font-size:16px;
+      line-height:18px;
+      font-weight:500;
+    }
   small {
     font-size:10px;
   }
@@ -257,5 +271,29 @@ table.cvi{
     font-size:10px;
     line-height:10px;
     @include cell(0px);
+  }
+}
+
+/* print settings */
+@media print {
+  header, footer, .btn, .debug_dump, .alert {
+    display: none;
+  }  
+  table { 
+    page-break-inside:auto; 
+  }
+  tr {
+    page-break-inside:avoid; 
+    page-break-after:auto; 
+  }
+  thead {
+    display:table-header-group;
+  }
+  tfoot {
+    display:table-footer-group;
+  }
+  body, div, table {
+    margin:0px;
+    padding:0px;
   }
 }

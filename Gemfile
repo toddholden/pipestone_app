@@ -35,4 +35,7 @@ end
 # gain access to the two helper methods error_messages and error_messages_for 
 # in your view templates. https://github.com/joelmoss/dynamic_form
  gem 'dynamic_form'
+
+# A fast and very simple Ruby web server
+# Run with: thin start
  gem 'thin'
