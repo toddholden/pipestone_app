@@ -9,8 +9,8 @@ namespace :db do
     admin1.toggle!(:admin)
     admin2 = User.create!(name: "Ray Scheierl",
                  email: "ray.scheierl@state.mn.us",
-                 password: "scheierl",
-                 password_confirmation: "scheierl")
+                 password: "Scheierl",
+                 password_confirmation: "Scheierl")
     admin2.toggle!(:admin)
     Animal.create!(date: Time.now,
                  metal1:"41AAA1234",
@@ -18,7 +18,9 @@ namespace :db do
                  breed: "HOL",
                  comments: "Lorem ipsum",
                  sex:"M",
-                 old_tag:"Y123")
+                 age:"6m",
+                 old_tag:"Y123",
+                 person_id:1)
                  
     50.times do |n|
       date = rand(2.years).ago 
