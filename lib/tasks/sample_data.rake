@@ -12,15 +12,6 @@ namespace :db do
                  password: "Scheierl",
                  password_confirmation: "Scheierl")
     admin2.toggle!(:admin)
-    Animal.create!(date: Time.now,
-                 metal1:"41AAA1234",
-                 allflex: "23563274",
-                 breed: "HOL",
-                 comments: "Lorem ipsum",
-                 sex:"M",
-                 age:"6m",
-                 old_tag:"Y123",
-                 person_id:1)
                  
     50.times do |n|
       date = rand(2.years).ago 
