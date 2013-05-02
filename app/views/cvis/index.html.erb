@@ -10,7 +10,7 @@
 
 <% @cvis.each do |cvi| %>
   <tr>
-    <td><%= cvi.cvi_number %></td>
+    <td><%= "P41-" +  cvi.cvi_number %></td>
     <td><%= cvi.date %></td>
     <td><%= link_to cvi.person.firstname + " " + cvi.person.lastname, cvi.person %></td>
     <td>

@@ -6,8 +6,8 @@ class Animal < ActiveRecord::Base
   belongs_to :cvi
 
   validates :person_id, :presence => true
-  validates :metal1, :format => { :with => /\A\d{2}[a-zA-Z]{3}\d{4}\z/, :message => "Format must match: 12ABC1234" }
-  validates :date, :presence => true
+  validates :metal1, :format => { :with => /\A\d{2}[a-zA-Z]{3}\d{4}\z/, :message => "format must match: 12ABC1234" }
+  validates :date, :date => { :message => 'must be a date.' }
 
   def self.search(search)
     if search
