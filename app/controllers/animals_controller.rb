@@ -30,6 +30,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.new
     @animal.person_id = params[:person_id]
     @people = Person.all(:order => :lastname)
+    @animal.date ||= Date.today 
   end
 
   # GET /animals/1/edit
