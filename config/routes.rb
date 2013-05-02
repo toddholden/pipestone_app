@@ -1,6 +1,5 @@
 PipestoneApp::Application.routes.draw do
 
-
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy', :via => :delete
@@ -21,7 +20,8 @@ PipestoneApp::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => "home#index"
-
+  match '/contact', :to => 'home#contact'
+  match '/about', :to => 'home#about'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

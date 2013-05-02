@@ -1,9 +1,9 @@
    <tr>
      <td><%= sale.sale_date %></td>
      <td><%= sale.buyer_number %></td>
-     <td>
-       <%= link_to 'Show', sale %> / 
-       <%= link_to 'Edit', edit_sale_path(sale) %> /
-       <%= link_to 'Delete', sale, method: :delete, data: { confirm: 'Are you sure?' } %>
+     <td class="center">
+      <%= link_to(sale) do %><i class="icon-eye-open"></i><% end  %>
+      <%= link_to(edit_sale_path(sale)) do %><i class="icon-pencil"></i><% end %> 
+      <%= link_to(sale, method: :delete, data: { confirm: 'Are you sure? This cannot be undone.' }) do %><i class="icon-remove"></i><% end %>
      </td>
    </tr>

@@ -24,7 +24,8 @@
     <%= f.label :sale_date %>
     <%= f.text_field :sale_date %>
   </div>
-  <div class="actions">
+  <div class="actions btn-group">
     <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to "Back to sales", sales_path, :class => 'btn' %>
   </div>
 <% end %>

@@ -2,10 +2,6 @@
 <div class="container">
   <h1>Sale</h1>
 </div>
-<div class="row toolbar">
-
-</div>
-
 <div class="row">
 <aside class="span4">
 <section>
@@ -41,7 +37,7 @@
       <%= render @animal %>
     </table>
   <% else %>
-    <p>No animals. Add some below.</p>
+    <p>There are no animals associated with this sale.</p>
   <% end %>
   <%= link_to 'Add animals', '#addAnimals', :class => 'btn btn-primary', :'data-toggle' => 'modal' %>
 </div>
@@ -56,7 +52,8 @@
     <th>Date</th>
     <th>Metal1</th>
     <th>Allflex</th>
-    <th>Comments</th>
+    <th>Sex</th>
+    <th>Breed</th>
   </tr>
 <%= form_tag({:controller => "animals", :action => "animal_assignment"}, {:method => 'get'} ) do %>
   <%= hidden_field_tag( :sale_id, @sale.id ) %>
@@ -66,7 +63,8 @@
       <td><span class="date"><%= animal.date %></span></td>
       <td><%= animal.metal1 %></td>
       <td><%= animal.allflex %></td>
-      <td class="comments"><%= animal.comments %></td>
+      <td><%= animal.sex %></td>
+      <td><%= animal.breed %></td>
     </tr>
   <% end %>
   <%= submit_tag "Add to sale", :class => 'btn btn-primary pull-right toolbar inline' %>
