@@ -20,10 +20,14 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
     </div>
-    <div class="field">
-      <%= f.label :admin %>
-      <%= f.check_box :admin %>
-    </div>
+
+    <% if admin? %>
+      <div class="field">
+        <%= f.label :admin, "Administrative user" %>
+        <%= f.check_box :admin, class: "checkbox" %>
+      </div>
+    <% end %>
+
       <%= f.submit "Update", class: "btn btn-primary" %>
     <% end %>
   </div>

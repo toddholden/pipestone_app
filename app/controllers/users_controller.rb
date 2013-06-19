@@ -22,9 +22,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      sign_in @user
-      flash[:success] = "You are logged in."
-      redirect_to root_path 
+        if params[:create_and_sign_in]
+          sign_in @user
+        end
+      flash[:success] = "User successfully created."
+      redirect_to @user
     else
       render 'new'
     end
@@ -71,4 +73,5 @@ class UsersController < ApplicationController
         flash[:failure] = "You can't complete that action." 
       end
     end
+
 end

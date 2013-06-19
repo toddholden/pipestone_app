@@ -2,7 +2,7 @@
 <h1>Sign in</h1>
 
 <div class="row">
-  <div class="span5 offset4">
+  <div class="span6">
     <%= form_for(:session, url: sessions_path) do |f| %>
 
     <div class="field">
@@ -16,6 +16,6 @@
       <%= f.submit "Sign in", class: "btn btn-primary" %>
     <% end %>
 
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p>New user? <%= link_to "Sign up.", signup_path %></p>
   </div>
 </div>

@@ -11,13 +11,13 @@
   <%= @user.email %>
 </p>
 
-<% if current_user.admin? %>
+<% if @user.admin? %>
 <p>
   <b>Admin:</b>
   <%= @user.admin %>
 </p>
 <% end %>
 
-<% if current_user?(@user) or current_user.admin? %>
+<% if current_user?(@user) or @user.admin? %>
   <%= link_to "Edit", edit_user_path(@user) %>
 <% end %>

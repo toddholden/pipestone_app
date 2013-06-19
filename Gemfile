@@ -16,6 +16,7 @@ gem 'date_validator'
 
 group :development do
   gem 'sqlite3'
+  gem 'annotate', '2.5.0'
 end
 
 group :production do

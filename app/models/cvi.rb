@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: cvis
+#
+#  id         :integer          not null, primary key
+#  cvi_number :string(255)
+#  date       :date
+#  person_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  sale_id    :integer
+#
+
 class Cvi < ActiveRecord::Base
   attr_accessible :cvi_number, :date, :person_id, :sale_id
 

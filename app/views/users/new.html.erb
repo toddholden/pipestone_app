@@ -20,7 +20,8 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, :class => "input-xlarge" %>
     </div>
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.submit "Create user", class: "btn btn-primary" %>
+      <%= f.submit "Create user and signin", :name => 'create_and_sign_in', class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
