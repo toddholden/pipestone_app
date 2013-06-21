@@ -14,7 +14,7 @@ namespace :db do
     admin2.toggle!(:admin)
                  
     50.times do |n|
-      date = rand(2.years).ago 
+      date = rand(2.years).ago.to_s("%m/%d/%y")
       metal1 = Faker::Base.regexify(/^[1-9][0-9][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9]$/)
       allflex = Faker::Base.regexify(/^(MN|WI|SD)[0-9]{5}$/)
       comment = Faker::Lorem.sentence(word_count = 4, supplemental = false) 

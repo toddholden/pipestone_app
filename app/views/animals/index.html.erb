@@ -42,7 +42,7 @@
   <tr>
     <td><span class="date"><%= animal.date %></span></td>
     <td>
-      <% if animal.person_id %>
+      <% if animal.person %>
         <%= link_to animal.person.firstname + " " + animal.person.lastname, animal.person %>
       <% end %>
     </td>
