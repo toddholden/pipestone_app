@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include SessionsHelper
   before_filter :set_cache_buster
+  force_ssl
 
   def handle_unverified_request
     sign_out
