@@ -23,7 +23,7 @@
 #
 
 class Animal < ActiveRecord::Base
-  attr_accessible :allflex, :comments, :date, :metal1, :sale_id, :person_id, :breed, :sex, :old_tag, :age, :chv, :bruc, :months_pregnant, :temperature
+  attr_accessible :allflex, :comments, :date, :metal1, :sale_id, :person_id, :breed, :sex, :old_tag, :age, :chv, :bruc, :months_pregnant, :temperature, :date_string
 
   belongs_to :sale
   belongs_to :person
@@ -31,7 +31,15 @@ class Animal < ActiveRecord::Base
 
   validates :person_id, :presence => true
   validates :metal1, :format => { :with => /\A\d{2}[a-zA-Z]{3}\d{4}\z/, :message => "format must match: 12ABC1234" }
-  validates :date, :date => { :message => 'must be a date.' }
+  validates :date, :date => { :message => 'must be a date with the format mm/dd/yyyy.' }
+
+  def date_string
+    date
+  end
+
+  def date_string=(date_str)
+    self.date = Date.strptime(date_str, "%m/%d/%Y")
+  end
 
   def self.search(search)
     if search

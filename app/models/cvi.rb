@@ -12,7 +12,7 @@
 #
 
 class Cvi < ActiveRecord::Base
-  attr_accessible :cvi_number, :date, :person_id, :sale_id
+  attr_accessible :cvi_number, :date, :person_id, :sale_id, :date_string
 
   belongs_to :person 
   belongs_to :sale
@@ -23,6 +23,15 @@ class Cvi < ActiveRecord::Base
   validates :cvi_number, :presence => true, 
             :uniqueness => { :message => "That CVI number has already been used." },
             :numericality => { :only_integer => true }
+  validates :date, :date => { :message => 'must be a date with the format mm/dd/yyyy.' }
+
+  def date_string
+    date
+  end
+
+  def date_string=(date_str)
+    self.date = Date.strptime(date_str, "%m/%d/%Y")
+  end
 
   def newCviNumber
     cviBase = 0

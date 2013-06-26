@@ -34,7 +34,7 @@ en:
     - Friday
     - Saturday
     formats:
-      default: "%m-%d-%Y"
+      default: "%m/%d/%Y"
       long: "%B %d, %Y"
       short: "%b %d"
     month_names:
@@ -52,9 +52,16 @@ en:
     - November
     - December
     order:
-    - :year
     - :month
     - :day
+    - :year
+  time:
+    am: am
+    formats:
+      default: '%a, %d %b %Y %H:%M:%S %z'
+      long: '%B %d, %Y %H:%M'
+      short: '%d %b %H:%M'
+    pm: pm
   datetime:
     distance_in_words:
       about_x_hours:
@@ -192,13 +199,6 @@ en:
       last_word_connector: ! ', and '
       two_words_connector: ! ' and '
       words_connector: ! ', '
-  time:
-    am: am
-    formats:
-      default: ! '%a, %d %b %Y %H:%M:%S %z'
-      long: ! '%B %d, %Y %H:%M'
-      short: ! '%d %b %H:%M'
-    pm: pm
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:

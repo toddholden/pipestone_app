@@ -14,8 +14,8 @@
 <div class="container">
 <div class="span5">
   <div class="field">
-    <%= f.label :date %>
-    <%= f.text_field :date.to_s %>
+    <%= f.label :date_string, "Date (mm/dd/yyyy)" %>
+    <%= f.text_field :date_string %>
     <%= f.label :person_id %>
     <%= select(:animal, :person_id, (options_from_collection_for_select(@people, :id, :name_by_last, @animal.person_id)), :include_blank => "Choose a person" ) %>
     <p><small>Don't see the person you are looking for? <%= link_to 'Add a new person.', new_person_path %></small></p>

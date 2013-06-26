@@ -22,7 +22,7 @@ namespace :db do
       sex = Faker::Base.regexify(/^(M|F)$/)
       age = Faker::Base.regexify(/^[1-9](m|y)$/)
       old_tag = Faker::Base.regexify(/^[A-Z][0-9]{3}$/)
-      owner = Faker::Base.regexify(/^[1-4]?\d$/)
+      owner = Faker::Base.regexify(/^[1-4]?\d$/).to_i+1
       Animal.create!(date: date,
                    metal1: metal1,
                    allflex: allflex,
