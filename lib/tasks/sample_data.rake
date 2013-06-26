@@ -7,11 +7,6 @@ namespace :db do
                  password: "foobar",
                  password_confirmation: "foobar")
     admin1.toggle!(:admin)
-    admin2 = User.create!(name: "Ray Scheierl",
-                 email: "ray.scheierl@state.mn.us",
-                 password: "Scheierl",
-                 password_confirmation: "Scheierl")
-    admin2.toggle!(:admin)
                  
     50.times do |n|
       date = rand(2.years).ago.to_s("%m/%d/%y")
